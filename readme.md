@@ -2,11 +2,11 @@
 
 Broken windows theory (https://en.wikipedia.org/wiki/Broken_windows_theory) claims that small crimes like vandalism and graffiti create an environment where more serious crimes occur. This theory is controverisal in itself and has led to controversial practices like 'stop and frisk'.
 
-This project looks at crime data from 2014 and compares it with Chicago's 311 service requests (http://www.cityofchicago.org/city/en/depts/311.html). The idea is 311 requests are a proxy for 'broken window' events.
+This project looks at crime data from 2014 and compares it with Chicago's 311 service requests (http://www.cityofchicago.org/city/en/depts/311.html). The idea is 311 requests are a proxy for 'broken windows'.
 
-The page is located at michaelkunc.github.io and contains 4 graphs.
+The page is located at [michaelkunc.github.io] (michaelkunc.github.io) and contains 4 graphs.
 
-* A 'heat map' of crime and 311 requests
+* A heat map of crime and 311 requests
 * A breakdown of crimes by type
 * A comparison of crime and 311 requests by ward
 * A measure of average response time to 311 requests
