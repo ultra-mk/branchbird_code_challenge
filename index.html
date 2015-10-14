@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Broken Windows</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/application.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
     <script src="js/d3.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -13,22 +13,11 @@
 </head>
 <nav>
     <div class="nav-wrapper blue-grey lighten-2 z-depth-2">
-        <a href="#" class="brand-logo text-blue lighten-5">What's going on in my ward</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">2015</a></li>
-            <li><a href="badges.html">2014</a></li>
-            <li><a href="collapsible.html">2013</a></li>
-        </ul>
+        <a href="#" class="brand-logo text-blue lighten-5">Crime & 311 Requests - 2014</a>
     </div>
 </nav>
 
 <body>
-    <!--      <div id="floating-panel">
-    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-    <button onclick="changeGradient()">Change gradient</button>
-    <button onclick="changeRadius()">Change radius</button>
-    <button onclick="changeOpacity()">Change opacity</button>
-    </div> -->
     <div id="map" class='z-depth-4'></div>
     <!-- Modal Trigger -->
     <div class="menu">
@@ -57,7 +46,7 @@
     </div>
 </body>
 <script src='js/application.js'></script>
-<script src = 'js/charts.js'></script>
+<script src='js/charts.js'></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=&signed_in=true&libraries=visualization">
 </script>
 

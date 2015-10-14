@@ -1,4 +1,4 @@
-// Crime Type Bar Chart
+// CRIME BAR CHART
 
 var crimePromise = $.ajax({
     url: "https://data.cityofchicago.org/resource/6zsd-86xi.json?year=2014",
@@ -30,7 +30,6 @@ function getCrimeCoordinates(element) {
     }
 }
 
-
 function crimeCategorize(element, property, targetObject) {
     var type = element[property];
     targetObject[type] = targetObject[type] ? targetObject[type] + 1 : 1;
@@ -55,7 +54,7 @@ function createBarChart(xAxis, yAxis) {
     Plotly.newPlot('crime_type_bar_chart', crimeTypeData)
 }
 
-// bubble chart
+//SERVICE BUBBLE CHART
 
 var msDay = 60 * 60 * 24 * 1000
 var serviceByWard = {};
@@ -80,7 +79,6 @@ function serviceSuccess(data) {
     splitObject(wardResponseData, responses, 50);
     createBubbleChart(Object.keys(serviceByWard), serviceCounts, responses);
 };
-
 
 function getServiceCoordinates(element) {
     if ((element.hasOwnProperty('lat')) && (element.hasOwnProperty('long'))) {
@@ -114,7 +112,6 @@ function splitObject(object, array, factor) {
     }
 }
 
-
 function createBubbleChart(xCoordinates, yCoordinates, sizes) {
     var bubbleTrace1 = {
         x: xCoordinates,
@@ -139,11 +136,7 @@ function createBubbleChart(xCoordinates, yCoordinates, sizes) {
     Plotly.newPlot('bubble', bubbleData, bubbleLayout);
 }
 
-// calling chart when both promises come back
-
-
-
-// grouped bar chart
+// GROUPED BAR CHART
 function createGroupedBarChart(crimeWards, crimeCounts, serviceWards, serviceCounts) {
     var crimeTrace = {
         x: crimeWards,
@@ -168,10 +161,10 @@ function createGroupedBarChart(crimeWards, crimeCounts, serviceWards, serviceCou
     Plotly.newPlot('crime_311_by_ward', groupedBarData, groupedBarLayout);
 }
 
-
 // HEAT MAP
 
 var map, heatmap;
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
@@ -188,46 +181,12 @@ function initMap() {
     });
 }
 
-function toggleHeatmap() {
-    heatmap.setMap(heatmap.getMap() ? null : map);
-}
-
-function changeGradient() {
-    var gradient = [
-        'rgba(0, 255, 255, 0)',
-        'rgba(0, 255, 255, 1)',
-        'rgba(0, 191, 255, 1)',
-        'rgba(0, 127, 255, 1)',
-        'rgba(0, 63, 255, 1)',
-        'rgba(0, 0, 255, 1)',
-        'rgba(0, 0, 223, 1)',
-        'rgba(0, 0, 191, 1)',
-        'rgba(0, 0, 159, 1)',
-        'rgba(0, 0, 127, 1)',
-        'rgba(63, 0, 91, 1)',
-        'rgba(127, 0, 63, 1)',
-        'rgba(191, 0, 31, 1)',
-        'rgba(255, 0, 0, 1)'
-    ];
-    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
-}
-
-function changeRadius() {
-    heatmap.set('radius', heatmap.get('radius') ? null : 20);
-}
-
-function changeOpacity() {
-    heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
-}
-
 function getPoints() {
     var points = [];
     for (var i = 0; i < coordinates.length; i++) {
         points.push(new google.maps.LatLng(coordinates[i][0], coordinates[i][1]));
-        console.log(coordinates[i][0]);
     }
     return points;
-
 }
 
 $.when(crimePromise, servicePromise).then(function() {
