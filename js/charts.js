@@ -21,7 +21,9 @@ function crimeSuccess(data) {
     });
     splitObject(crimeByWard, crimeCounts, 1)
     sortDescending(crimeByType);
-    createBarChart([crimeRank[0][0], crimeRank[1][0], crimeRank[2][0], crimeRank[3][0], crimeRank[4][0], crimeRank[5][0]], [crimeRank[0][1], crimeRank[1][1], crimeRank[2][1], crimeRank[3][1], crimeRank[4][1], crimeRank[5][1]]);
+    var xAxis = [crimeRank[0][0], crimeRank[1][0], crimeRank[2][0], crimeRank[3][0], crimeRank[4][0], crimeRank[5][0], crimeRank[6][0], crimeRank[7][0], crimeRank[8][0]];
+    var yAxis = [crimeRank[0][1], crimeRank[1][1], crimeRank[2][1], crimeRank[3][1], crimeRank[4][1], crimeRank[5][1],crimeRank[6][1], crimeRank[7][1], crimeRank[8][1]];
+    createBarChart(xAxis, yAxis);
 };
 
 function getCrimeCoordinates(element) {
@@ -116,19 +118,22 @@ function createBubbleChart(xCoordinates, yCoordinates, sizes) {
     var bubbleTrace1 = {
         x: xCoordinates,
         y: yCoordinates,
-        text: ['A<br>size: 40', 'B<br>size: 60', 'C<br>size: 80', 'D<br>size: 100'],
         mode: 'markers',
         marker: {
-            color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)', 'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
-            size: sizes
+            color: 'blue',
+            size: sizes,
         }
     };
 
     var bubbleData = [bubbleTrace1];
 
     var bubbleLayout = {
-        // title: '311 Average Response times by ward',
-        showlegend: false,
+        xaxis: {
+            title: 'ward'
+        },
+        yaxis: {
+            title: 'number of requests'
+        },
         height: 500,
         width: 500
     };
@@ -155,7 +160,13 @@ function createGroupedBarChart(crimeWards, crimeCounts, serviceWards, serviceCou
     var groupedBarData = [crimeTrace, serviceTrace];
 
     var groupedBarLayout = {
-        barmode: 'group'
+        barmode: 'group',
+        xaxis: {
+            title: 'ward'
+        },
+        yaxis: {
+            title: 'number of incidents'
+        }
     };
 
     Plotly.newPlot('crime_311_by_ward', groupedBarData, groupedBarLayout);
