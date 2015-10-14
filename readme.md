@@ -4,7 +4,7 @@ Broken windows theory (https://en.wikipedia.org/wiki/Broken_windows_theory) clai
 
 This project looks at crime data from 2014 and compares it with Chicago's 311 service requests (http://www.cityofchicago.org/city/en/depts/311.html). The idea is 311 requests are a proxy for 'broken windows'.
 
-The page is located at [michaelkunc.github.io] (michaelkunc.github.io) and contains 4 graphs.
+The page is located at michaelkunc.github.io and contains 4 graphs.
 
 * A heat map of crime and 311 requests
 * A breakdown of crimes by type
